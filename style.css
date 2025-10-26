@@ -1,8 +1,4 @@
-/* Couleurs estimées à partir du logo : */
-/* Vert : #3CB371 (medium sea green) */
-/* Bleu : #4682B4 (steel blue) */
-/* Dégradé : du vert au bleu */
-
+/* Dégradé du fond similaire à l'image : du bleu foncé au cyan clair */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -10,80 +6,90 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f9; /* Fond clair pour contraster */
-    color: #333; /* Texte principal foncé */
+    /* Dégradé de fond bleu/cyan */
+    background: linear-gradient(135deg, #0072ff, #00c6ff); 
+    color: #ffffff; /* Couleur du texte en blanc */
     text-align: center;
 }
 
 .container {
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     max-width: 90%;
-    width: 500px;
 }
 
 .logo {
-    width: 150px; /* Taille du logo */
+    width: 180px; /* Taille du logo */
     height: auto;
-    margin-bottom: 20px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5)); /* Ombre pour faire ressortir le logo */
+    margin-bottom: 40px;
+}
+
+.maintenance-content {
+    /* Style pour le texte principal */
 }
 
 h1 {
-    font-size: 2.5em;
-    color: #4682B4; /* Utilisation d'un bleu du logo pour le titre principal */
-    margin-bottom: 5px;
+    font-size: 3em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
-h2 {
-    font-size: 1.5em;
-    color: #3CB371; /* Utilisation d'un vert du logo pour le sous-titre */
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-weight: normal;
+/* L'icône de maintenance (clé à molette) */
+h1::before {
+    content: "\f0ad"; /* Code de l'icône Wrench (Clé à molette) de Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.8em;
+    margin-right: 15px;
+    color: #ffeb3b; /* Jaune/Or pour la faire ressortir (couleur de votre logo) */
+    animation: pulse 1.5s infinite; /* Animation */
 }
 
 p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-bottom: 5px;
 }
 
-.social-links {
-    margin: 20px 0;
+p strong {
+    font-weight: bold;
+    color: #ffeb3b; /* Jaune pour le nom */
+}
+
+/* ---------------------------------- */
+/* Styles pour les Icônes Sociales */
+/* ---------------------------------- */
+.social-links-top {
+    margin-bottom: 25px;
 }
 
 .social-icon {
-    display: inline-block;
-    color: #fff;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
+    color: #ffffff; /* Icônes blanches */
     font-size: 1.5em;
     margin: 0 10px;
-    border-radius: 50%;
-    transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Couleurs des icônes inspirées du dégradé du logo */
-.social-icon.email {
-    background: linear-gradient(135deg, #3CB371, #5cb85c); /* Dégradé de vert */
-}
-
-.social-icon.linkedin {
-    background: linear-gradient(135deg, #4682B4, #337ab7); /* Dégradé de bleu */
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
 }
 
 .social-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    color: #ffeb3b; /* Jaune au survol */
 }
 
-.domain {
-    margin-top: 30px;
+.copyright {
+    position: fixed; /* Position fixe en bas de l'écran */
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
     font-size: 0.9em;
-    color: #aaa;
+    opacity: 0.8;
+}
+
+/* Animation pour l'icône de maintenance */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
 }
